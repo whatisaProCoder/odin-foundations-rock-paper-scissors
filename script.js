@@ -88,7 +88,7 @@ function playGame() {
         message = 'Computer won!';
     else
         message = 'Finally, its a tie!';
-    console.log(`%c${message}`, 'color :rgb(100, 145, 218); font-size : 24px');
+    console.log(`%c${message}`, 'color :rgb(158, 195, 255); font-size : 24px');
     console.groupEnd();
 }
 
