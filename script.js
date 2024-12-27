@@ -61,6 +61,7 @@ function playGame() {
         console.log(`%c${message}`, 'color : red');
     }
 
+    console.log(`%cLet's play rock, paper, scissors!`, 'color: yellow; font-size: 18px');
 
     for (let i = 0; i < 5; i++) {
         console.group('Round ' + (i + 1));
