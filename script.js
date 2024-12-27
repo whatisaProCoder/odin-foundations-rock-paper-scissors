@@ -87,8 +87,8 @@ function playGame() {
     else if (humanScore < computerScore)
         message = 'Computer won!';
     else
-        message = 'Its a tie!';
-    console.log(`%c${message}`, 'color : yellow');
+        message = 'Finally, its a tie!';
+    console.log(`%c${message}`, 'color :rgb(100, 145, 218); font-size : 24px');
     console.groupEnd();
 }
 
