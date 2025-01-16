@@ -1,0 +1,121 @@
+body {
+    margin: 0px;
+    background-color: #312939;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 36px;
+    color: #e5dded;
+    background-color: #433a4c;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.credit {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px 36px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #e5dded;
+}
+
+.bot-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 36px;
+    color: #e5dded;
+    font-weight: 600;
+    font-size: 24px;
+    gap: 16px;
+}
+
+.bot-choice-name {
+    background-color: #433a4c;
+    padding: 36px 56px;
+    padding-bottom: 40px;
+    font-size: 36px;
+    font-weight: normal;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #695e74;
+}
+
+.human-choice {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.human-choice-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+}
+
+.rock,
+.paper,
+.scissors {
+    background-color: #433a4c;
+    font-size: 36px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #695e74;
+    color: #e5dded;
+    height: 150px;
+    width: 180px;
+    text-align: center;
+    align-content: center;
+    border-width: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+    background-color: #3f3649;
+}
+
+.rock:active,
+.paper:active,
+.scissors:active {
+    background-color: #38303f;
+    border-color: #8892a6;
+}
+
+.choose-any-one {
+    color: #e5dded;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 16px;
+    margin-bottom: 20px;
+}
+
+.result {
+    text-align: center;
+    align-content: center;
+    margin: 36px;
+    font-size: 36px;
+}

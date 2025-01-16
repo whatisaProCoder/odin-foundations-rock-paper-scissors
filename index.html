@@ -4,11 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors - Console</title>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
-<body style="background-color: black;">
-    <script src="script.js"></script>
+<body>
+    <header>
+        <div class="title">Rock, Paper, Scissors</div>
+        <div class="credit">By Pritam Debnath</div>
+    </header>
+    <div class="score">
+        <div class="bot-score">Bot Score : 0</div>
+        <div class="human-score">Your Score : 0</div>
+    </div>
+    <div class="bot-choice">
+        <div>Bot's choice</div>
+        <div class="bot-choice-name">...</div>
+    </div>
+    <div class="human-choice">
+        <div class="choose-any-one">Choose any one...</div>
+        <div class="human-choice-section">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissors">Scissors</button>
+        </div>
+    </div>
+    <div class="result"></div>
 </body>
 
 </html>

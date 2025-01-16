@@ -1,95 +1,110 @@
+const botChoiceName = document.querySelector(".bot-choice-name");
+const botScore = document.querySelector(".bot-score");
+const humanScore = document.querySelector(".human-score");
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+const result = document.querySelector(".result");
+
 function getComputerChoice() {
     const numberOfChoices = 3;
     const randomNumber = Math.random();
     const settingRange = randomNumber * numberOfChoices;
     const wholeNumber = Math.floor(settingRange)
     if (wholeNumber == 0)
-        return 'rock';
+        return 'Rock';
     else if (wholeNumber == 1)
-        return 'paper';
+        return 'Paper';
     else if (wholeNumber == 2)
-        return 'scissors';
+        return 'Scissors';
 }
 
-function getHumanChoice() {
-    const humanChoiceNumeric = prompt('Enter your choice : 0 -> rock, 1 -> paper, 2 -> scissors')
-    if (humanChoiceNumeric == 0)
-        return 'rock';
-    else if (humanChoiceNumeric == 1)
-        return 'paper';
-    else if (humanChoiceNumeric == 2)
-        return 'scissors';
-    else {
-        return 'Undefined choice';
+let botscore = 0;
+let humanscore = 0;
+
+function updateScores() {
+    botScore.textContent = "Bot Score : " + botscore;
+    humanScore.textContent = "Your Score : " + humanscore;
+}
+
+let round = 0;
+function checkWinner() {
+    round++;
+    if (round == 5) {
+        if (botscore > humanscore) {
+            result.textContent = "You lose!";
+            result.style.color = "orangered";
+        } else if (botscore < humanscore) {
+            result.textContent = "You Won!";
+            result.style.color = "lightgreen";
+        } else {
+            result.textContent = "Its a tie! Game over...";
+            result.style.color = "orange";
+        }
+        setTimeout(() => {
+            result.textContent = "";
+            botChoiceName.textContent = "...";
+            botscore = 0;
+            humanscore = 0;
+            round = 0;
+            updateScores();
+        }, 4000);
     }
 }
 
-function playGame() {
-
-    let humanScore = 0;
-    let computerScore = 0;
-
-    function playRound(humanChoice, computerChoice) {
-        let message = 'Scraped round...';
-        if (humanChoice == 'rock' && computerChoice == 'paper') {
-            computerScore++;
-            message = 'Paper beats rock, computer score: +1';
-        }
-        else if (humanChoice == 'paper' && computerChoice == 'rock') {
-            humanScore++;
-            message = 'Paper beats rock, human score : +1';
-        }
-        else if (humanChoice == 'paper' && computerChoice == 'scissors') {
-            computerScore++;
-            message = 'Scissors beats paper, computer score: +1';
-        }
-        else if (humanChoice == 'scissors' && computerChoice == 'paper') {
-            humanScore++;
-            message = 'Scissors beats paper, human score : +1';
-        }
-        else if (humanChoice == 'scissors' && computerChoice == 'rock') {
-            computerScore++;
-            message = 'Rock beats scissors, computer score: +1';
-        }
-        else if (humanChoice == 'rock' && computerChoice == 'scissors') {
-            humanScore++;
-            message = 'Rock beats scissors, human score : +1';
-        }
-        else if (humanChoice == computerChoice) {
-            message = 'Its a tie!';
-        }
-        console.log(`%c${message}`, 'color : red');
+rockButton.addEventListener("click", () => {
+    const computerChoiceName = getComputerChoice();
+    botChoiceName.textContent = computerChoiceName;
+    if (computerChoiceName == "Paper") {
+        botscore++;
+        result.textContent = "Paper beats rock...";
+        result.style.color = "orangered";
+    } else if (computerChoiceName == "Scissors") {
+        humanscore++;
+        result.textContent = "Rock beats scissors...";
+        result.style.color = "lightgreen";
+    } else if (computerChoiceName == "Rock") {
+        result.textContent = "Tie!";
+        result.style.color = "orange";
     }
+    updateScores();
+    checkWinner();
+});
 
-    console.log(`%cLet's play rock, paper, scissors!`, 'color: yellow; font-size: 18px');
-
-    for (let i = 0; i < 5; i++) {
-        console.group('Round ' + (i + 1));
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        console.log('Human chose : ' + humanSelection);
-        console.log('Computer chose : ' + computerSelection);
-
-        playRound(humanSelection, computerSelection);
-
-        console.groupEnd();
+paperButton.addEventListener("click", () => {
+    const computerChoiceName = getComputerChoice();
+    botChoiceName.textContent = computerChoiceName;
+    if (computerChoiceName == "Rock") {
+        humanscore++;
+        result.textContent = "Paper beats rock...";
+        result.style.color = "lightgreen";
+    } else if (computerChoiceName == "Scissors") {
+        botscore++;
+        result.textContent = "Scissors beat paper...";
+        result.style.color = "orangered";
+    } else if (computerChoiceName == "Paper") {
+        result.textContent = "Tie!";
+        result.style.color = "orange";
     }
+    updateScores();
+    checkWinner();
+});
 
-    console.group('Results')
-    console.log('Human Score : ' + humanScore);
-    console.log('Computer Score : ' + computerScore);
-
-    let message;
-    if (humanScore > computerScore)
-        message = 'Human won!';
-    else if (humanScore < computerScore)
-        message = 'Computer won!';
-    else
-        message = 'Finally, its a tie!';
-    console.log(`%c${message}`, 'color :rgb(158, 195, 255); font-size : 24px');
-    console.groupEnd();
-}
-
-playGame();
+scissorsButton.addEventListener("click", () => {
+    const computerChoiceName = getComputerChoice();
+    botChoiceName.textContent = computerChoiceName;
+    if (computerChoiceName == "Rock") {
+        botscore++;
+        result.textContent = "Rock beats scissors...";
+        result.style.color = "orangered";
+    } else if (computerChoiceName == "Paper") {
+        humanscore++;
+        result.textContent = "Scissors beat paper...";
+        result.style.color = "lightgreen";
+    } else if (computerChoiceName == "Scissors") {
+        result.textContent = "Tie!";
+        result.style.color = "orange";
+    }
+    updateScores();
+    checkWinner();
+});
