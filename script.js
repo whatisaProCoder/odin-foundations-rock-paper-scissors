@@ -32,15 +32,18 @@ function checkWinner() {
     round++;
     if (round == 5) {
         if (botscore > humanscore) {
-            result.textContent = result.textContent + "You lose!";
+            result.textContent = result.textContent + " You lose!";
             result.style.color = "orangered";
         } else if (botscore < humanscore) {
-            result.textContent = result.textContent + "You Won!";
+            result.textContent = result.textContent + " You Won!";
             result.style.color = "lightgreen";
         } else {
-            result.textContent = result.textContent + "Its a tie! Game over...";
+            result.textContent = result.textContent + " Its a tie! Game over...";
             result.style.color = "orange";
         }
+        const title = document.querySelector(".title");
+        title.textContent = "Wait for 4 seconds to reset...";
+        title.style.color = "orangered";
         setTimeout(() => {
             result.textContent = "";
             botChoiceName.textContent = "...";
@@ -48,6 +51,8 @@ function checkWinner() {
             humanscore = 0;
             round = 0;
             updateScores();
+            title.textContent = "Rock, Paper, Scissors";
+            title.style.color = "#e5dded";
         }, 4000);
     }
 }
@@ -64,7 +69,7 @@ rockButton.addEventListener("click", () => {
         result.textContent = "Rock beats scissors...";
         result.style.color = "lightgreen";
     } else if (computerChoiceName == "Rock") {
-        result.textContent = "Tie!";
+        result.textContent = "Bruh...";
         result.style.color = "orange";
     }
     updateScores();
