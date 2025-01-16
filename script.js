@@ -32,13 +32,13 @@ function checkWinner() {
     round++;
     if (round == 5) {
         if (botscore > humanscore) {
-            result.textContent = "You lose!";
+            result.textContent = result.textContent + "You lose!";
             result.style.color = "orangered";
         } else if (botscore < humanscore) {
-            result.textContent = "You Won!";
+            result.textContent = result.textContent + "You Won!";
             result.style.color = "lightgreen";
         } else {
-            result.textContent = "Its a tie! Game over...";
+            result.textContent = result.textContent + "Its a tie! Game over...";
             result.style.color = "orange";
         }
         setTimeout(() => {
