@@ -69,7 +69,7 @@ rockButton.addEventListener("click", () => {
         result.textContent = "Rock beats scissors...";
         result.style.color = "lightgreen";
     } else if (computerChoiceName == "Rock") {
-        result.textContent = "Bruh...";
+        result.textContent = "Tie!";
         result.style.color = "orange";
     }
     updateScores();
