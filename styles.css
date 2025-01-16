@@ -128,7 +128,7 @@ header {
     }
 
     .score {
-        flex-direction: column;
+        flex-direction: row;
         padding: 16px;
     }
 
@@ -144,7 +144,7 @@ header {
 
     .human-choice-section {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
 
     .rock,
@@ -186,7 +186,7 @@ header {
     }
 
     .human-choice-section {
-        gap: 4px;
+        gap: 8px;
     }
 
     .rock,
